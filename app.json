@@ -1,0 +1,11 @@
+{
+  "name": "LiveScore",
+  "displayName": "LiveScore",
+  "userInterfaceStyle": "automatic",
+  "android": {
+    "userInterfaceStyle": "automatic"
+  },
+  "ios": {
+    "userInterfaceStyle": "automatic"
+  }
+}
