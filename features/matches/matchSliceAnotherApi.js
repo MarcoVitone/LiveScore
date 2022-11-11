@@ -212,7 +212,7 @@ export const fetchLeagueTopAssists = createAsyncThunk(
     const resp = await axios.get(
       'https://v3.football.api-sports.io/players/topassists',
       {
-        params: {league: 135, season: year},
+        params: {league: id, season: year},
         headers: {
           'X-RapidAPI-Key': '272ef48264ecf111ffd9b0a2f9c56264',
           'X-RapidAPI-Host': 'v3.football.api-sports.io',

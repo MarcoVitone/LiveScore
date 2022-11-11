@@ -37,7 +37,7 @@ const SingleTeam = ({
           style={{flexDirection: 'row'}}
           onPress={() => navigation.navigate('Team', {id})}>
           <Image source={{uri: logo}} style={styles.logo} />
-          <Text style={{color}}>{name.slice(0, 10)}</Text>
+          <Text style={{color}}>{name.slice(0, 11)}</Text>
         </Pressable>
       </View>
       <View style={styles.stands}>
