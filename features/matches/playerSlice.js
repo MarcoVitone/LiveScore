@@ -17,7 +17,7 @@ export const fetchPlayers = createAsyncThunk(
         params: {id: id, season: season},
         headers: {
           'X-RapidAPI-Key':
-            '597ea5937cmsh463ba0a61e15949p1cddb4jsnab207c393461',
+            '**************',
           'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
         },
       },
