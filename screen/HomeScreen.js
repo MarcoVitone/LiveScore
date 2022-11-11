@@ -12,11 +12,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useEffect, useState, useMemo, useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {competition} from '../competition';
-import {
-  getAllMatches,
-  fetchAllMatches,
-  resetError,
-} from '../features/matches/matchesSlice';
+import {getAllMatches, fetchAllMatches} from '../features/matches/matchesSlice';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
@@ -36,7 +32,6 @@ const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchAllMatches(date));
   }, [dispatch, date]);
 

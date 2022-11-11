@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchSingleMatch, resetError} from '../features/matches/matchesSlice';
+import {fetchSingleMatch} from '../features/matches/singleMatchSlice';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import MatchResult from '../component/MatchResult';
 import MatchEvents from '../component/MatchEvents';
@@ -23,13 +23,12 @@ const WIDTH = Dimensions.get('window').width;
 const SingleMatchScreen = ({route, navigation}) => {
   const {id} = route.params;
   const isDarkMode = useSelector(state => state.darkMode.isDark);
-  const isLoading = useSelector(state => state.matches.isLoading);
-  const error = useSelector(state => state.matches.error);
-  const data = useSelector(state => state.matches.singleMatch);
+  const isLoading = useSelector(state => state.singleMatch.isLoading);
+  const error = useSelector(state => state.singleMatch.error);
+  const data = useSelector(state => state.singleMatch.singleMatch);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchSingleMatch(id));
   }, [dispatch]);
 

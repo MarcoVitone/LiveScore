@@ -243,11 +243,7 @@ const initialState = {
 const matchesSlice = createSlice({
   name: 'matches',
   initialState,
-  reducers: {
-    resetError(state) {
-      state.error = false;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchAllMatches.pending]: state => {
       return {...state, isLoading: true, error: false};
@@ -351,6 +347,5 @@ const matchesSlice = createSlice({
   },
 });
 export const getAllMatches = state => state.matches.matches;
-export const {resetError} = matchesSlice.actions;
 
 export default matchesSlice.reducer;

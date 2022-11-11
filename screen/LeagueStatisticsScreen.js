@@ -15,8 +15,7 @@ import {
   fetchLeagueTopAssists,
   fetchLeagueTopRedCard,
   fetchLeagueTopYellowCard,
-  resetError,
-} from '../features/matches/matchesSlice';
+} from '../features/matches/leagueSlice';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import SinglePlayerStatistics from '../component/SinglePlayerStatistics';
 
@@ -25,16 +24,15 @@ const WIDTH = Dimensions.get('window').width;
 const LeagueStatisticsScreen = ({route, navigation}) => {
   const {id} = route.params;
   const isDarkMode = useSelector(state => state.darkMode.isDark);
-  const isLoading = useSelector(state => state.matches.isLoading);
-  const error = useSelector(state => state.matches.error);
-  const topScorers = useSelector(state => state.matches.topScorers);
-  const topAssists = useSelector(state => state.matches.topAssists);
-  const topRedCard = useSelector(state => state.matches.topRedCard);
-  const topYellowCard = useSelector(state => state.matches.topYellowCard);
+  const isLoading = useSelector(state => state.league.isLoading);
+  const error = useSelector(state => state.league.error);
+  const topScorers = useSelector(state => state.league.topScorers);
+  const topAssists = useSelector(state => state.league.topAssists);
+  const topRedCard = useSelector(state => state.league.topRedCard);
+  const topYellowCard = useSelector(state => state.league.topYellowCard);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchLeagueTopScorers(id));
     dispatch(fetchLeagueTopAssists(id));
     dispatch(fetchLeagueTopRedCard(id));

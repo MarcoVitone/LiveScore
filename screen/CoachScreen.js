@@ -10,20 +10,19 @@ import {
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {fetchCoaches, resetError} from '../features/matches/matchesSlice';
+import {fetchCoaches} from '../features/matches/coachSlice';
 
 const WIDTH = Dimensions.get('window').width;
 
 const CoachScreen = ({route}) => {
   const {id} = route.params;
   const isDarkMode = useSelector(state => state.darkMode.isDark);
-  const isLoading = useSelector(state => state.matches.isLoading);
-  const error = useSelector(state => state.matches.error);
-  const data = useSelector(state => state.matches.coach);
+  const isLoading = useSelector(state => state.coach.isLoading);
+  const error = useSelector(state => state.coach.error);
+  const data = useSelector(state => state.coach.coach);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchCoaches(id));
   }, [dispatch]);
   const backgroundColor = isDarkMode ? Colors.darker : Colors.lighter;

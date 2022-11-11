@@ -10,21 +10,19 @@ import {
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {fetchPlayers, resetError} from '../features/matches/matchesSlice';
+import {fetchPlayers} from '../features/matches/playerSlice';
 
 const WIDTH = Dimensions.get('window').width;
 
 const PlayerScreen = ({route}) => {
   const {id} = route.params;
   const isDarkMode = useSelector(state => state.darkMode.isDark);
-  const isLoading = useSelector(state => state.matches.isLoading);
-  const error = useSelector(state => state.matches.error);
-  const data = useSelector(state => state.matches.player);
+  const isLoading = useSelector(state => state.player.isLoading);
+  const error = useSelector(state => state.player.error);
+  const data = useSelector(state => state.player.player);
   const dispatch = useDispatch();
-  console.log(data);
-  console.log(id);
+
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchPlayers(id));
   }, [dispatch]);
 

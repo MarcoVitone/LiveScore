@@ -29,7 +29,7 @@ const initialState = {
 const coachSlice = createSlice({
   name: 'coach',
   initialState,
-  reducers,
+  reducers: {},
   extraReducers: {
     [fetchCoaches.pending]: state => {
       return {...state, isLoading: true, error: false};

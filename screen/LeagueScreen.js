@@ -10,10 +10,7 @@ import {
 } from 'react-native';
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {
-  fetchLeagueStandings,
-  resetError,
-} from '../features/matches/matchesSlice';
+import {fetchLeagueStandings} from '../features/matches/leagueSlice';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import SingleTeam from '../component/SingleTeam';
 
@@ -22,13 +19,12 @@ const WIDTH = Dimensions.get('window').width;
 const LeagueScreen = ({route, navigation}) => {
   const {id} = route.params;
   const isDarkMode = useSelector(state => state.darkMode.isDark);
-  const isLoading = useSelector(state => state.matches.isLoading);
-  const error = useSelector(state => state.matches.error);
-  const data = useSelector(state => state.matches.standings);
+  const isLoading = useSelector(state => state.league.isLoading);
+  const error = useSelector(state => state.league.error);
+  const data = useSelector(state => state.league.standings);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchLeagueStandings(id));
   }, [dispatch]);
 

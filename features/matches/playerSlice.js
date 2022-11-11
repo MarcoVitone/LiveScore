@@ -36,7 +36,7 @@ const initialState = {
 const playerSlice = createSlice({
   name: 'player',
   initialState,
-  reducers,
+  reducers: {},
   extraReducers: {
     [fetchPlayers.pending]: state => {
       return {...state, isLoading: true, error: false};

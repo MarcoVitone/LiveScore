@@ -29,7 +29,7 @@ const initialState = {
 const singleMatchSlice = createSlice({
   name: 'singleMatch',
   initialState,
-  reducers,
+  reducers: {},
   extraReducers: {
     [fetchSingleMatch.pending]: state => {
       return {...state, isLoading: true, error: false};

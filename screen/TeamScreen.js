@@ -10,25 +10,20 @@ import {
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {
-  fetchTeamInfo,
-  fetchTeamMatches,
-  resetError,
-} from '../features/matches/matchesSlice';
+import {fetchTeamInfo, fetchTeamMatches} from '../features/matches/teamSlice';
 import TeamMatches from '../component/TeamMatches';
 
 const WIDTH = Dimensions.get('window').width;
 const TeamScreen = ({route, navigation}) => {
   const {id} = route.params;
   const isDarkMode = useSelector(state => state.darkMode.isDark);
-  const error = useSelector(state => state.matches.error);
-  const isLoading = useSelector(state => state.matches.isLoading);
-  const data = useSelector(state => state.matches.teamInfo);
-  const matches = useSelector(state => state.matches.teamMatches);
+  const error = useSelector(state => state.team.error);
+  const isLoading = useSelector(state => state.team.isLoading);
+  const data = useSelector(state => state.team.teamInfo);
+  const matches = useSelector(state => state.team.teamMatches);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetError());
     dispatch(fetchTeamInfo(id));
     dispatch(fetchTeamMatches(id));
   }, [dispatch]);

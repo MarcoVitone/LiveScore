@@ -56,7 +56,7 @@ const initialState = {
 const teamSlice = createSlice({
   name: 'team',
   initialState,
-  reducers,
+  reducers: {},
   extraReducers: {
     [fetchTeamInfo.pending]: state => {
       return {...state, isLoading: true, error: false};
